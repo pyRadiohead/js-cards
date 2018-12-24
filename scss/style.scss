@@ -1,0 +1,131 @@
+@import "normalize";
+@import "layout";
+@import "elements";
+
+body {
+	background: url(../img/bg.jpg) no-repeat fixed;
+	background-size: cover;
+}
+
+/* Layout */
+.ba-container {
+	padding-left: 20px;
+	padding-right: 20px;
+	max-width: 1200px;
+}
+
+.ba-cards {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+
+
+.ba-card {
+	display: block;
+	position: relative;
+	height: 400px;
+	width: 270px;
+	margin: 10px;
+	perspective: 400px;
+}
+
+
+.ba-card-frontside {
+	display: flex;
+	height: 100%;
+	width: 100%;
+	background: lightblue;
+	transform-style: preserve-3d;
+	-webkit-transition: -webkit-transform .5s ease-in;
+	transition: -webkit-transform .5s ease-in;
+	-o-transition: transform .5s ease-in;
+	transition: transform .5s ease-in;
+	transition: transform .5s ease-in, -webkit-transform .5s ease-in;
+	backface-visibility: hidden;
+	border: 2px solid #2D4359;
+	border-radius: 5px;
+}
+
+.ba-left-part,
+.ba-right-part {
+	width: 10%;
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+}
+
+.ba-central-part {
+	width: 80%;
+}
+
+.ba-card__index {
+	z-index: 10;
+	font-size: 40px;
+}
+
+.ba-card__suit-up,
+.ba-card__suit-down {
+	font-size: 70px;
+}
+
+.ba-card__suit-mini {
+	font-size: 25px;
+}
+
+.ba-right-part {
+	transform: rotate(180deg);
+}
+
+.ba-card__suit-down {
+	transform: rotate(180deg);
+
+}
+
+.ba-central-part {
+	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.ba-central-part .ba-card__suit-up,
+.ba-card__suit-down {
+	margin: auto;
+	text-align: center;
+	overflow: hidden;
+}
+
+.ba-card-backside {
+	z-index: -1;
+	position: absolute;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	border: 2px solid #2D4359;
+	border-radius: 5px;
+	background: linear-gradient(135deg, rgba(159, 216, 239, .4) 17%, rgba(228, 245, 252, .4) 49%, rgba(42, 176, 237, .4) 100%), url(../img/bg-back.png) no-repeat center;
+	-webkit-transition: -webkit-transform .5s ease-in;
+	transition: -webkit-transform .5s ease-in;
+	-o-transition: transform .5s ease-in;
+	transition: transform .5s ease-in;
+	-webkit-transition: background-image 0.5s ease-in-out;
+	transition: background-image 0.5s ease-in-out;
+	transition: transform .5s ease-in, -webkit-transform .5s ease-in;
+	transform: rotateY(180deg);
+
+}
+
+.ba-card:hover .ba-card-frontside {
+	transform-style: preserve-3d;
+	transform: rotateY(-180deg);
+
+}
+
+.ba-card:hover .ba-card-backside {
+	transform-style: preserve-3d;
+	transform: rotateY(0deg);
+
+}
