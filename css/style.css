@@ -690,7 +690,6 @@ body {
 
 .ba-central-part .ba-card__suit-up,
 .ba-card__suit-down {
-  margin: auto;
   text-align: center;
   overflow: hidden; }
 
